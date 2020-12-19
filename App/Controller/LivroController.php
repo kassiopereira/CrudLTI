@@ -10,9 +10,6 @@ session_start();
  Class LivroController
  {
 
-     // 	public function __contstruct(){
-
-     // 	}
      public function insereLivro()
      {
          $titulo = $_POST['titulo'];

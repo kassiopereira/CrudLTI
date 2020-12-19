@@ -9,13 +9,9 @@ require_once ('../Models/Conexao.php');
 
 
 
-//
 Class AutorController
 {
-//
-// public function __contstruct(){
-//
-// 	}
+
 
     public function insereAutor()
     {
@@ -58,17 +54,7 @@ Class AutorController
         $autor->setLivros($livros);
         $autorDao = new \App\Models\AutorDao();
         $autorDao->deleteAut($autor);
-//        $id = $_GET['id'];
-//         $titulo = $_POST['titulo'];
-//         $descricao = $_POST['descricao'];
-//         $autores = $_POST['autores'];
-//         $livro = new \App\Models\Livro();
-//         $livro->setId($id);
-//         $livro->setTitulo($titulo);
-//         $livro->setDescricao($descricao);
-//         $livro->setAutores($autores);
-//        $livroDao = new \App\Models\LivroDao();
-//        $livroDao->deleteLivro($id);
+
     }
 }
 $aController = new AutorController();
