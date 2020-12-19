@@ -6,7 +6,7 @@ require_once ('../Models/Livro.php');
 require_once ('../Models/AutorDao.php');
 require_once ('../Models/Autor.php');
 require_once ('../Models/Conexao.php');
-session_start();
+
 
 
 //
@@ -20,12 +20,12 @@ Class AutorController
     public function insereAutor()
     {
 
-        $nome = $_POST['nome'];
-        $dataNascimento = $_POST['dataNascimento'];
+        $nome = $_POST['nome_autor'];
+        $dataNascimento = $_POST['data_nascimento'];
         $livros = $_POST['livros'];
         $autor = new \App\Models\Autor();
         $autor->setNome($nome);
-        $autor->setDataNacimento($dataNascimento);
+        $autor->setDataNascimento($dataNascimento);
         $autor->setLivros($livros);
         $autorDao = new \App\Models\AutorDao();
         $autorDao->createAut($autor);
@@ -33,23 +33,26 @@ Class AutorController
 
     public function editAut()
     {
-        $nome = $_POST['nome'];
-        $dataNascimento = $_POST['dataNascimento'];
+        $id_a = $_POST['id_a'];
+        $nome = $_POST['nome_autor'];
+        $dataNascimento = $_POST['data_nascimento'];
         $livros = $_POST['livros'];
         $autor = new \App\Models\Autor();
+        $autor->setIdAutor($id_a);
         $autor->setNome($nome);
-        $autor->setDataNacimento($dataNascimento);
+        $autor->setDataNascimento($dataNascimento);
         $autor->setLivros($livros);
         $autorDao = new \App\Models\AutorDao();
         $autorDao->updateAut($autor);
     }
 
     public function deletAutor()
-    {
-        $nome = $_POST['nome'];
-        $dataNascimento = $_POST['dataNascimento'];
+    {   $id_a = $_GET['id_a'];
+        $nome = $_POST['nome_autor'];
+        $dataNascimento = $_POST['data_nascimento'];
         $livros = $_POST['livros'];
         $autor = new \App\Models\Autor();
+        $autor->setIdAutor($id_a);
         $autor->setNome($nome);
         $autor->setDataNacimento($dataNascimento);
         $autor->setLivros($livros);
@@ -80,6 +83,7 @@ elseif (isset($_POST['btn-editar-aut'])):
     $_SESSION['mensagem'] = "Editado com sucesso!";
     header('Location: ../View/ViewAutor.php');
 elseif (isset($_POST['btn-delete-aut'])):
+
     $aController->deletAutor();
     $_SESSION['mensagem'] = "Editado com sucesso!";
     header('Location: ../View/ViewAutor.php');

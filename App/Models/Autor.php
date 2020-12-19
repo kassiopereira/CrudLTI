@@ -6,7 +6,7 @@ Class Autor{
 	private $id_a ,  $nome_autor, $data_nascimento ,$livros ;
 	
 	public function getNome(){
-		return $this->NomeAutor;
+		return $this->nome_autor;
 	}
 
 	public function setNome($nome_autor){
@@ -16,14 +16,14 @@ Class Autor{
 		return $this->id_a ;
 	}
 
-//	public function setIdAutor($id){
-//		$this->id = $id;
-//	}
-	public function getDataNacinto(){
+	public function setIdAutor($id){
+		$this->id = $id;
+	}
+	public function getDataNascimento(){
 		return $this->data_nascimento;
 	}
 
-	public function setDataNacimento($data_nascimento){
+	public function setDataNascimento($data_nascimento){
 		$this->data_nascimento = $data_nascimento ;
 	}
 	public function getLivros(){

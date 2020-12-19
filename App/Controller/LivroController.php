@@ -42,27 +42,27 @@ session_start();
      }
 
      public function deletLivro()
+
      {
+//         foreach ( $autorDao->readAut() as $autor):
+
+//             if ($autor['id'] == $_GET['id']):
          $id = $_GET['id'];
-//         $titulo = $_POST['titulo'];
-//         $descricao = $_POST['descricao'];
-//         $autores = $_POST['autores'];
-//         $livro = new \App\Models\Livro();
-//         $livro->setId($id);
+//         $titulo = $_GET['titulo'];
+//         $descricao = $_GET['descricao'];
+//         $autores = $_GET['autores'];
+         $livro = new \App\Models\Livro();
+         $livro->setId($id);
 //         $livro->setTitulo($titulo);
 //         $livro->setDescricao($descricao);
 //         $livro->setAutores($autores);
          $livroDao = new \App\Models\LivroDao();
-         $livroDao->deleteLivro($id);
+         $livroDao->deleteLivro($livro);
      }
 
 
  }
 
-
-
-
-$id = filter_input(INPUT_GET, 'id ');
 $lcontroler = new LivroController;
 if(isset($_POST['btn-cadastrar'])):
     $lcontroler->insereLivro();
@@ -77,7 +77,7 @@ elseif (isset($_POST['btn-editar'])):
 
 elseif (isset($_POST['btn-delete'])):
     $lcontroler->deletLivro();
-    $_SESSION['mensagem'] = "Editado com sucesso!";
+    $_SESSION['mensagem'] = "Deletado com sucesso!";
     header('Location: ../View/ViewLivro.php');
     endif;
 

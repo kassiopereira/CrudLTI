@@ -52,10 +52,10 @@ class LivroDao{
 
 
 	}
-	public function deleteLivro($l){
+	public function deleteLivro($id){
 		$sql = 'DELETE * FROM livro WHERE id = ?';
 		$deletquery = Conexao::getConn()->prepare($sql);
-		$deletquery->bindValue(1,$l);
+		$deletquery->bindValue(1,$id);
 		$deletquery->execute();
 
 

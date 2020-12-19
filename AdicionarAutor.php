@@ -22,12 +22,12 @@ namespace App\View;
         <h3 class="ligth"> Novo Autor</h3>
         <form action="App/Controller/AutorController.php" method="POST">
             <div class="input-field col s12">
-                <input type="text" name="nome" id="nome">
+                <input type="text" name="nome" id="nome_autor">
                 <label for="nome">Nome</label>
             </div>
             <div class="input-field col s12">
-                <input class="form-control" type="date"  name="data" id="dataNascimento2">
-                <input type="text" name="dataNascimento" id="dataNascimento">
+                <input class="form-control" type="date"  name="data" id="data_nascimento">
+
                 <label for="dataNascimento">Data de Nascimento</label>
             </div>
             <div class="input-field col s12">

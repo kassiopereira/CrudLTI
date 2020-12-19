@@ -6,9 +6,9 @@ class AutorDao{
 	public function createAut(Autor $a){
 		$sql = 'INSERT INTO autor (nome_autor,data_nascimento,livros) VALUES (?,?,?)';
 		$cadastrarAutor = Conexao::getConn()->prepare($sql);
-		$cadastrarAutor->bindValue(1,$a->getNome($_POST['nome']));
-		$cadastrarAutor->bindValue(2,$a->setDataNacimento($_POST['dataNascimento']));
-		$cadastrarAutor->bindValue(3,$a->getLivros($_POST['livros']));
+		$cadastrarAutor->bindValue(1,$a->getNome());
+		$cadastrarAutor->bindValue(2,$a->getDataNascimento());
+		$cadastrarAutor->bindValue(3,$a->getLivros());
 		$cadastrarAutor->execute();
 	}
 
@@ -30,7 +30,7 @@ class AutorDao{
 		$sql = 'UPDATE autor SET nome_autor = ?, data_nascimento = ?, livros = ? WHERE id_a = ?';
 		$updatequery = Conexao::getConn()->prepare($sql);
 		$updatequery->bindValue(1,$a->getNome());
-		$updatequery->bindValue(2,$a->getDataNacinto());
+		$updatequery->bindValue(2,$a->getDataNascimento());
 		$updatequery->bindValue(3,$a->getLivros());
 		$updatequery->bindValue(4,$a->getIdAutor());
 		$updatequery->execute();
@@ -38,7 +38,7 @@ class AutorDao{
 
 	}
 	public function deleteAut($id){
-		$sql = 'DELETE FROM autor WHERE id = ?';
+		$sql = 'DELETE * FROM autor WHERE id_a = ?';
 		$deletquery = Conexao::getConn()->prepare($sql);
 		$deletquery->bindValue(1,$id);
 		$deletquery->execute();
