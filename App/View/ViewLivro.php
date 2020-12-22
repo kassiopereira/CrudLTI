@@ -49,8 +49,13 @@
 
 
             <td> <a href="EditarLivro.php?id=<?php echo $livro['id']; ?>" name="btn-editar" class = "btn-floating orange"><i class="material-icons">edit</i></a></td>
-            <td> <a href="../Controller/LivroController.php?id=<?php echo $livro['id']; ?>"name="btn-delete" class = "btn-floating red"><i class="material-icons">delete</i></a></td>
-           
+            <td>
+                <form action="../Controller/LivroController.php" method="POST">
+                    <input type = 'hidden' name = 'id' value = "<?php echo $livro['id']?>">
+                    <button type="submit" name="btn-delete" style="border: none; background-color: Transparent;"><a href="" class = "btn-floating red"><i class="material-icons">delete</i></a></button>
+                </form>
+
+            </td>
 
           
         </tr>

@@ -6,7 +6,9 @@ require_once ('../Models/Livro.php');
 require_once ('../Models/AutorDao.php');
 require_once ('../Models/Autor.php');
 require_once ('../Models/Conexao.php');
-
+$aController = new AutorController();
+$autor = new \App\Models\Autor();
+$autorDao = new \App\Models\AutorDao();
 
 
 Class AutorController
@@ -15,15 +17,15 @@ Class AutorController
 
     public function insereAutor()
     {
-
-        $nome = $_POST['nome_autor'];
+        echo $_GET['nome_autor'];
+        $nome_autor = $_POST['nome_autor'];
         $dataNascimento = $_POST['data_nascimento'];
         $livros = $_POST['livros'];
-//        $autor = new \App\Models\Autor();
-        $autor->setNome($nome);
+        $autor = new \App\Models\Autor();
+        $autor->setNome($nome_autor);
         $autor->setDataNascimento($dataNascimento);
         $autor->setLivros($livros);
-//        $autorDao = new \App\Models\AutorDao();
+        $autorDao = new \App\Models\AutorDao();
         $autorDao->createAut($autor);
     }
 
@@ -58,11 +60,10 @@ Class AutorController
 
     }
 }
-$aController = new AutorController();
-$autor = new \App\Models\Autor();
-$autorDao = new \App\Models\AutorDao();
+
 
 if (isset($_POST['btn-cadastrar-aut'])):
+
 $aController->insereAutor();
 $_SESSION['mensagem'] = "Cadastrado com sucesso!";
 header('Location: ../View/ViewAutor.php');
@@ -72,11 +73,16 @@ elseif (isset($_POST['btn-editar-aut'])):
     $_SESSION['mensagem'] = "Editado com sucesso!";
     header('Location: ../View/ViewAutor.php');
 elseif (isset($_POST['btn-delete-aut'])):
-    $ad = $_GET['id_a'];
+
+    $ad = $_POST['id_a'];
     $autorDao->deleteAut($ad);
 //    $aController->deletAutor($ad);
     $_SESSION['mensagem'] = "Deletado com sucesso!";
     header('Location: ../View/ViewAutor.php');
+    else:
+        $_SESSION['mensagem'] = "Deletado com sucesso!";
+        echo "Redirecionando para a tela inicial!!";
+        header('Location: ../../Main.php');
 endif;
 
 

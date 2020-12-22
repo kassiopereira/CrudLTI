@@ -43,7 +43,13 @@
                 <td><?php echo $autor['livros']; ?></td>
 
                 <td> <a href="EditarAutor.php?id_a=<?php echo $autor['id_a']; ?>" name="btn-editar-aut" class = "btn-floating orange"><i class="material-icons">edit</i></a></td>
-                <td> <a href="../Controller/AutorController.php?id_a=<?php echo $autor['id_a']; ?>" name="btn-delete-aut" class = "btn-floating red"><i class="material-icons">delete</i></a></td>
+                <td>
+                    <form action="../Controller/AutorController.php" method="POST">
+                        <input type = 'hidden' name = 'id_a' value = "<?php echo $autor['id_a']?>">
+                        <button type="submit" name="btn-delete-aut" style="border: none; background-color: Transparent;"><a href="" class = "btn-floating red"><i class="material-icons">delete</i></a></button>
+                    </form>
+
+                </td>
 
 
 

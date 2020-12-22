@@ -23,7 +23,7 @@ namespace App\View;
         <form action="../Controller/AutorController.php" method="POST">
             <div class="input-field col s12">
                 <input type="text" name="nome_autor" id="nome_autor">
-                <label for="nome">Nome</label>
+                <label for="nome_autor">Nome</label>
             </div>
             <div class="input-field col s12">
 <!--                <input class="form-control" type="text"  name="data" id="data_nascimento">-->

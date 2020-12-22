@@ -72,8 +72,27 @@ elseif (isset($_POST['btn-editar'])):
     header('Location: ../View/ViewLivro.php');
 
 elseif (isset($_POST['btn-delete'])):
-    $lcontroler->deletLivro();
+
+    $l = $_POST['id'];
+    $livroDao = new \App\Models\LivroDao();
+    $livroDao->deleteLivro($l);
+//    $aController->deletAutor($ad);
     $_SESSION['mensagem'] = "Deletado com sucesso!";
     header('Location: ../View/ViewLivro.php');
-    endif;
+else:
+    $_SESSION['mensagem'] = "Deletado com sucesso!";
+    echo "Redirecionando para a tela inicial!!";
+    header('Location: ../../Main.php');
+endif;
+
+
+
+
+
+
+//
+//    $lcontroler->deletLivro();
+//    $_SESSION['mensagem'] = "Deletado com sucesso!";
+//    header('Location: ../View/ViewLivro.php');
+//    endif;
 

@@ -56,7 +56,7 @@ class LivroDao{
 	public function deleteLivro($id){
 		$sql = 'DELETE FROM livro WHERE id = ?';
 		$deletquery = Conexao::getConn()->prepare($sql);
-		$deletquery->bindValue(1,$id,PDO::PARAM_INIT);
+		$deletquery->bindValue(1,$id);
 		$deletquery->execute();
 
 
