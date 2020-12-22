@@ -12,19 +12,15 @@ class Livro{
 	public function getAutores(){
 		return $this->autores;
 	}
-
 	public function getId(){
 		return $this->id ;
 	}
-
 	public function setId($id){
 		$this->id  = $id  ;
 	}
 	public function setTitulo($titulo){
 		$this->titulo = $titulo ;
 	}
-
-
 	public function setDescricao($descricao){
 		$this->descricao = $descricao ;
 	}

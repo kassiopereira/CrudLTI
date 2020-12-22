@@ -26,19 +26,20 @@ class LivroDao{
 		endif;
 
 	}
-    public function readLivro_id($l){
+    public function readLivro_id($id){
         $sql = 'SELECT * FROM livro WHERE id = ?';
 
         $readbanco = Conexao::getConn()->prepare($sql);
-        $readbanco->bindValue(1,$l);
+        $readbanco->bindValue(1,$id,PDO::PARAM_INIT);
         $readbanco->execute();
+        return $readbanco->fetch();
 
-        if($readbanco->rowCount()>0):
-            $resultado = $readbanco->fetchAll(\PDO::FETCH_ASSOC);
-            return $resultado;
-        else:
-            return [];
-        endif;
+//        if($readbanco->rowCount()>0):
+//            $resultado = $readbanco->fetchAll(\PDO::FETCH_ASSOC);
+//            return $resultado;
+//        else:
+//            return [];
+//        endif;
 
     }
 	public function updateLivro(Livro $l){
@@ -53,9 +54,9 @@ class LivroDao{
 
 	}
 	public function deleteLivro($id){
-		$sql = 'DELETE * FROM livro WHERE id = ?';
+		$sql = 'DELETE FROM livro WHERE id = ?';
 		$deletquery = Conexao::getConn()->prepare($sql);
-		$deletquery->bindValue(1,$id);
+		$deletquery->bindValue(1,$id,PDO::PARAM_INIT);
 		$deletquery->execute();
 
 

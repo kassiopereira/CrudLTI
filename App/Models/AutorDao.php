@@ -11,7 +11,6 @@ class AutorDao{
 		$cadastrarAutor->bindValue(3,$a->getLivros());
 		$cadastrarAutor->execute();
 	}
-
 	public function readAut(){
 		$sql = 'SELECT * FROM autor';
 		$readbanco = Conexao::getConn()->prepare($sql);
@@ -25,7 +24,6 @@ class AutorDao{
         endif;
 
     }
-
 	public function updateAut(Autor $a){
 		$sql = 'UPDATE autor SET nome_autor = ?, data_nascimento = ?, livros = ? WHERE id_a = ?';
 		$updatequery = Conexao::getConn()->prepare($sql);
@@ -37,11 +35,11 @@ class AutorDao{
 
 
 	}
-	public function deleteAut($id){
-		$sql = 'DELETE * FROM autor WHERE id_a = ?';
-		$deletquery = Conexao::getConn()->prepare($sql);
-		$deletquery->bindValue(1,$id);
-		$deletquery->execute();
+	public function deleteAut($a){
+		$sql = 'DELETE FROM autor WHERE id_a = ?';
+		$deletequery = Conexao::getConn()->prepare($sql);
+		$deletequery->bindValue(1,$a);
+		$deletequery->execute();
 
 
 	}

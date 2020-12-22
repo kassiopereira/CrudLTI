@@ -45,11 +45,11 @@
         <tr>
           <td><?php echo $livro['titulo']; ?></td>
           <td><?php echo $livro['descricao']; ?></td>
-            <td><?php echo $livro['autores']; ?></td>
+           <td><?php echo $livro['autores']; ?></td>
 
 
             <td> <a href="EditarLivro.php?id=<?php echo $livro['id']; ?>" name="btn-editar" class = "btn-floating orange"><i class="material-icons">edit</i></a></td>
-            <td> <a href="../Controller/LivroController.php<?php echo $livro['id']; ?>"name="btn-delete" class = "btn-floating red"><i class="material-icons">delete</i></a></td>
+            <td> <a href="../Controller/LivroController.php?id=<?php echo $livro['id']; ?>"name="btn-delete" class = "btn-floating red"><i class="material-icons">delete</i></a></td>
            
 
           
@@ -58,13 +58,12 @@
       </tbody>
     </table>
     <br>
-    <a href="../../Adicionar.php" class = "btn">Adicionar Outro Livro</a>
+    <a href="Adicionar.php" class = "btn">Adicionar Outro Livro</a>
     <a href="../../Main.php" class = "btn">Voltar</a>
 
   </div>
 </div>
-<!-- <?php
-?> -->
+
     <body>
 
 

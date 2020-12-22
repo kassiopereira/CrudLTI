@@ -41,18 +41,17 @@ session_start();
      public function deletLivro()
 
      {
-//         foreach ( $autorDao->readAut() as $autor):
-
-//             if ($autor['id'] == $_GET['id']):
+//
          $id = $_GET['id'];
-//         $titulo = $_GET['titulo'];
-//         $descricao = $_GET['descricao'];
-//         $autores = $_GET['autores'];
+         $titulo = $_POST['titulo'];
+         $descricao = $_POST['descricao'];
+         $autores = $_POST['autores'];
+//
          $livro = new \App\Models\Livro();
          $livro->setId($id);
-//         $livro->setTitulo($titulo);
-//         $livro->setDescricao($descricao);
-//         $livro->setAutores($autores);
+         $livro->setTitulo($titulo);
+         $livro->setDescricao($descricao);
+         $livro->setAutores($autores);
          $livroDao = new \App\Models\LivroDao();
          $livroDao->deleteLivro($livro);
      }

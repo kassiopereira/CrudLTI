@@ -20,7 +20,7 @@ namespace App\View;
       <div class="row">
         <div class ="col s12 m6 push-m3">
           <h3 class="ligth"> Novo Livro</h3>
-          <form action="App/Controller/LivroController.php" method="POST">
+          <form action="../Controller/LivroController.php" method="POST">
             <div class="input-field col s12">
               <input type="text" name="titulo" id="titulo">
               <label for="titulo">Título</label>
@@ -34,7 +34,7 @@ namespace App\View;
               <label for="autores">Autores</label>
             </div>
             <button type="submit" name="btn-cadastrar" class="btn">Cadastrar</button>
-            <a href="App/View/ViewLivro.php" class="btn green">Lista de Livros</a>
+            <a href="ViewLivro.php" class="btn green">Lista de Livros</a>
           </form>
 
         </div>

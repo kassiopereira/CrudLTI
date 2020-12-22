@@ -12,61 +12,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <?php
-require_once ('../Models/AutorDao.php');
-require_once ('../Models/Autor.php');
-require_once ('../Models/Conexao.php');
-session_start();
+    require_once ('../Models/AutorDao.php');
+    require_once ('../Models/Autor.php');
+    require_once ('../Models/Conexao.php');
+    session_start();
 if(isset($_GET['id_a'])):
     $autor = new \App\Models\Autor();
-    $autorDao = new \App\Models\AutorDao();
-    $autorDao->readAut();
-    foreach ( $autorDao->readAut() as $autor):
-
+    $autordao = new \App\Models\AutorDao();
+    $autordao->readAut();
+    foreach ($autordao->readAut() as $autor):
         if ($autor['id_a'] == $_GET['id_a']):
-
-
-            ?>
+?>
             <div class="container">
                 <div class="row">
                     <div class ="col sm-12 m push-m3">
                         <h3 class="ligth"> Editar Autor</h3>
-
-
-                        <form action="../Controller/AutorController.php" method="POST">
+                    <form action="../Controller/AutorController.php" method="POST">
 
                             <div class="input-field col s12">
                                 <input type = 'hidden' name = 'id_a' value = "<?php echo $autor['id_a']?>">
-                                <label for="nome">Autor</label>
-                                <input type="text" name="nome" value="<?php echo $autor['nome_autor']?>" id="nome_autor">
+                                <label for="nome_autor">Autor</label>
+                                <input type="text" name="nome_autor" value="<?php echo $autor['nome_autor']?>" id="nome_autor">
                             </div>
                             <div class="input-field col s12">
-                                <label for="dataNascimento">Data de Nascimento</label>
-                                <input type="text" name="dataNascimento" value = "<?php echo $autor['data_nascimento']?>" id="data_nascimento">
+                                <label for="data_nascimento">Data de Nascimento</label>
+                                <input type="text" name="data_nascimento" value = "<?php echo $autor['data_nascimento']?>" id="data_nascimento">
 
                             </div>
-                            <div class="input-field col s12"">
-                            <label for="livros">Livros</label>
-                            <input type="text" name="livros" value="<?php echo $autor['livros']?>" id="livros">
+                            <div class="input-field col s12">
+                                <label for="livros">Livros</label>
+                                  <input type="text" name="livros" value="<?php echo $autor['livros']?>" id="livros">
                             </div>
 
                     <button type="submit" name="btn-editar-aut" class="btn">Atualizar</button>
                     </form>
-                </div>
-
-
-
-
-
+                    </div>
+                 </div>
             </div>
-
-
-
-
-
-
-            <!--        --><?php endif; endforeach;endif;?>
-
-
+           <?php endif; endforeach;endif;?>
 <body>
 
 

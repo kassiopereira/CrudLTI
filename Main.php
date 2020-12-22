@@ -21,8 +21,8 @@
 
 
         <br>
-        <a href="Adicionar.php" class = "btn">Adicionar livro</a>
-        <a href="AdicionarAutor.php" class = "btn">Adicionar Autor</a>
+        <a href="App/View/Adicionar.php" class = "btn">Adicionar livro</a>
+        <a href="App/View/AdicionarAutor.php" class = "btn">Adicionar Autor</a>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
