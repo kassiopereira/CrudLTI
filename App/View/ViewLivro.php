@@ -37,15 +37,33 @@
         $autor = new \App\Models\Autor();
         $autorDao = new \App\Models\AutorDao();
         $autorDao->readAut();
+        $t= new \App\Models\AutorDao();
+        $t->buscaAutor();
+
+
         foreach ($livrodao->readLivro() as $livro):
-
-
-
         ?>
         <tr>
           <td><?php echo $livro['titulo']; ?></td>
           <td><?php echo $livro['descricao']; ?></td>
-           <td><?php echo $livro['autores']; ?></td>
+
+
+<!--//foreach para buscar autores dos livros
+            --><?php //foreach ($autorDao->readAut() as $autor):
+//                     if($t['id_a'] == $autor['id_a']):;?>
+<!--                            <td>--><?php //echo $t['nome_autor'];?><!--</td>-->
+<!--                    --><?php //endif;?>
+<!---->
+<!--            --><?php //endforeach;?>
+<!--             //foreach para busca da tabela auxiliar-->
+                    <?php //foreach ($autorDao->readAut() as $autor):?>
+<!---->
+<!--                -->
+<!--                --><?php //echo $autor['nome_autor']; echo ", "?><!--</td>-->
+<!--                --><?php //endif;
+//                endforeach;?>
+
+
 
 
             <td> <a href="EditarLivro.php?id=<?php echo $livro['id']; ?>" name="btn-editar" class = "btn-floating orange"><i class="material-icons">edit</i></a></td>
@@ -63,7 +81,7 @@
       </tbody>
     </table>
     <br>
-    <a href="Adicionar.php" class = "btn">Adicionar Outro Livro</a>
+    <a href="AdicionarLivro.php" class = "btn">Adicionar Outro Livro</a>
     <a href="../../Main.php" class = "btn">Voltar</a>
 
   </div>

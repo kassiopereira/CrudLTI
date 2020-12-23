@@ -34,13 +34,19 @@
         $autor = new \App\Models\Autor();
         $autorDao = new \App\Models\AutorDao();
         $autorDao->readAut();
+
         foreach ($autorDao->readAut() as $autor):
 
             ?>
             <tr>
                 <td><?php echo $autor['nome_autor']; ?></td>
                 <td><?php echo $autor['data_nascimento']; ?></td>
-                <td><?php echo $autor['livros']; ?></td>
+<!--               /foreach para busca os livros do autor
+ <td>--><?php //echo $autor['livros']?><!--</td>-->
+<!--          / --><?php //foreach ($autorDao->readAut_l() as $autor):?>
+<!--                    <td>--><?php //echo $autor['livros'];echo ","?><!--</td>-->
+<!--                --><?php //endforeach; ?>
+<!--               <td>--><?php ////echo $autor['livros']; ?><!--</td>-->
 
                 <td> <a href="EditarAutor.php?id_a=<?php echo $autor['id_a']; ?>" name="btn-editar-aut" class = "btn-floating orange"><i class="material-icons">edit</i></a></td>
                 <td>
@@ -58,7 +64,7 @@
       </tbody>
     </table>
     <br>
-    <a href="Adicionar.php" class = "btn">Adicionar livro</a>
+    <a href="AdicionarLivro.php" class = "btn">Adicionar livro</a>
     <a href="AdicionarAutor.php" class = "btn">Adicionar outro Autor</a>
     <a href="../../Main.php" class = "btn">Voltar</a>
   </div>

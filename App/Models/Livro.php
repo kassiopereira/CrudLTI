@@ -2,16 +2,15 @@
  namespace App\Models;
 
 class Livro{
-	private $id , $titulo, $descricao, $autores;
+//A
+	private $id , $titulo, $descricao;
 	public function getTitulo(){
 		return $this->titulo;
 	}
 	public function getDescricao(){
 		return $this->descricao;
 	}
-	public function getAutores(){
-		return $this->autores;
-	}
+
 	public function getId(){
 		return $this->id ;
 	}
@@ -24,8 +23,6 @@ class Livro{
 	public function setDescricao($descricao){
 		$this->descricao = $descricao ;
 	}
-	public function setAutores($autores ){
-		$this->autores = $autores ;
-	}
+
 }
 ?>

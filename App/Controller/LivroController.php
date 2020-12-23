@@ -2,6 +2,9 @@
 
 require_once ('../Models/LivroDao.php');
 require_once ('../Models/Livro.php');
+require_once ('../Models/AutorDao.php');
+require_once ('../Models/autor.php');
+
 
 require_once ('../Models/Conexao.php');
 session_start();
@@ -14,26 +17,36 @@ session_start();
      {
          $titulo = $_POST['titulo'];
          $descricao = $_POST['descricao'];
-         $autores = $_POST['autores'];
+//         $autores = $_POST['autores'];
          $livro = new \App\Models\Livro();
          $livro->setTitulo($titulo);
          $livro->setDescricao($descricao);
-         $livro->setAutores($autores);
+//         $livro->setAutores($autores);
          $livroDao = new \App\Models\LivroDao();
          $livroDao->createLivro($livro);
-     }
 
+
+     }
+     //metodo de teste para usar a tabela auxiliar
+//     public function insereLivroAut()
+//     {
+//         $id_a = $_POST['id_a'];
+//         $id= $_POST['id'];
+//         $livroDao = new \App\Models\LivroDao();
+//         $livroDao->createLivro($id_a,$id);
+//
+//     }
      public function editLivro()
      {
          $id = $_POST['id'];
          $titulo = $_POST['titulo'];
          $descricao = $_POST['descricao'];
-         $autores = $_POST['autores'];
+//         $autores = $_POST['autores'];
          $livro = new \App\Models\Livro();
          $livro->setId($id);
          $livro->setTitulo($titulo);
          $livro->setDescricao($descricao);
-         $livro->setAutores($autores);
+//         $livro->setAutores($autores);
          $livroDao = new \App\Models\LivroDao();
          $livroDao->updateLivro($livro);
      }
@@ -45,13 +58,13 @@ session_start();
          $id = $_GET['id'];
          $titulo = $_POST['titulo'];
          $descricao = $_POST['descricao'];
-         $autores = $_POST['autores'];
+//         $autores = $_POST['autores'];
 //
          $livro = new \App\Models\Livro();
          $livro->setId($id);
          $livro->setTitulo($titulo);
          $livro->setDescricao($descricao);
-         $livro->setAutores($autores);
+//         $livro->setAutores($autores);
          $livroDao = new \App\Models\LivroDao();
          $livroDao->deleteLivro($livro);
      }
@@ -62,6 +75,7 @@ session_start();
 $lcontroler = new LivroController;
 if(isset($_POST['btn-cadastrar'])):
     $lcontroler->insereLivro();
+//    $lcontroler->insereLivroAut();
     $_SESSION['mensagem'] = "Cadastrado com sucesso!";
     header('Location: ../View/ViewLivro.php');
 
@@ -80,19 +94,8 @@ elseif (isset($_POST['btn-delete'])):
     $_SESSION['mensagem'] = "Deletado com sucesso!";
     header('Location: ../View/ViewLivro.php');
 else:
-    $_SESSION['mensagem'] = "Deletado com sucesso!";
+    $_SESSION['mensagem'] = "Erro, volte para a tela Inicial!";
     echo "Redirecionando para a tela inicial!!";
     header('Location: ../../Main.php');
 endif;
-
-
-
-
-
-
-//
-//    $lcontroler->deletLivro();
-//    $_SESSION['mensagem'] = "Deletado com sucesso!";
-//    header('Location: ../View/ViewLivro.php');
-//    endif;
 

@@ -40,10 +40,11 @@ foreach ($livrodao->readLivro() as $livro):
                     <input type="text" name="descricao" value = "<?php echo $livro['descricao']?>" id="descricao">
                     <label for="descricao">Descrição</label>
                 </div>
-                <div class="input-field col s12">
-                    <input type="text" name="autores" value="<?php echo $livro['autores']?>" id="autores">
-                    <label for="autores">Autores</label>
-                </div>
+
+<!--           //drop para mostrar os autores para serem editados nos livros.     <div class="input-field col s12">-->
+<!--                    <input type="text" name="autores" value="--><?php //echo $livro['autores']?><!--" id="autores">-->
+<!--                    <label for="autores">Autores</label>-->
+<!--                </div>-->
                 <button type="submit" name="btn-editar" class="btn">Atualizar</button>
             </form>
         </div>

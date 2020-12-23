@@ -36,13 +36,10 @@ if(isset($_GET['id_a'])):
                             </div>
                             <div class="input-field col s12">
                                 <label for="data_nascimento">Data de Nascimento</label>
-                                <input type="text" name="data_nascimento" value = "<?php echo $autor['data_nascimento']?>" id="data_nascimento">
+                                <input class="form-control" type="date" name="data_nascimento" value = "<?php echo $autor['data_nascimento']?>" id="data_nascimento">
 
                             </div>
-                            <div class="input-field col s12">
-                                <label for="livros">Livros</label>
-                                  <input type="text" name="livros" value="<?php echo $autor['livros']?>" id="livros">
-                            </div>
+
 
                     <button type="submit" name="btn-editar-aut" class="btn">Atualizar</button>
                     </form>

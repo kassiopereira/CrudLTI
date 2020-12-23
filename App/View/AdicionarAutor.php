@@ -26,14 +26,10 @@ namespace App\View;
                 <label for="nome_autor">Nome</label>
             </div>
             <div class="input-field col s12">
-<!--                <input class="form-control" type="text"  name="data" id="data_nascimento">-->
-                <input type="text"  name="data_nascimento" id="data_nascimento">
+                <input class="form-control" type="date"  name="data_nascimento" id="data_nascimento">
                 <label for="data_nascimento">Data de Nascimento</label>
             </div>
-            <div class="input-field col s12">
-                <input type="text" name="livros" id="livros">
-                <label for="livros">Livros</label>
-            </div>
+
             <button type="submit" name="btn-cadastrar-aut" class="btn">Cadastrar</button>
             <a href="ViewAutor.php" class="btn green">Lista de Autores</a>
         </form>

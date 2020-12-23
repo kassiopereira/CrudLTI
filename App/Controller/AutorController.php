@@ -27,6 +27,7 @@ Class AutorController
         $autor->setLivros($livros);
         $autorDao = new \App\Models\AutorDao();
         $autorDao->createAut($autor);
+
     }
 
     public function editAut()
@@ -34,13 +35,13 @@ Class AutorController
         $id_a = $_POST['id_a'];
         $nome = $_POST['nome_autor'];
         $dataNascimento = $_POST['data_nascimento'];
-        $livros = $_POST['livros'];
-//        $autor = new \App\Models\Autor();
+
+        $autor = new \App\Models\Autor();
         $autor->setIdAutor($id_a);
         $autor->setNome($nome);
         $autor->setDataNascimento($dataNascimento);
-        $autor->setLivros($livros);
-//        $autorDao = new \App\Models\AutorDao();
+
+        $autorDao = new \App\Models\AutorDao();
         $autorDao->updateAut($autor);
     }
 
@@ -79,10 +80,10 @@ elseif (isset($_POST['btn-delete-aut'])):
 //    $aController->deletAutor($ad);
     $_SESSION['mensagem'] = "Deletado com sucesso!";
     header('Location: ../View/ViewAutor.php');
-    else:
-        $_SESSION['mensagem'] = "Deletado com sucesso!";
-        echo "Redirecionando para a tela inicial!!";
-        header('Location: ../../Main.php');
+else:
+    $_SESSION['mensagem'] = "Erro, volte para a tela Inicial!";
+    echo "Redirecionando para a tela inicial!!";
+    header('Location: ../../Main.php');
 endif;
 
 

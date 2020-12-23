@@ -4,7 +4,8 @@ namespace App\Models;
 
 Class Autor
 {
-    private $id_a, $nome_autor, $data_nascimento, $livros;
+
+    private $id_a, $nome_autor, $data_nascimento;
 
     public function getNome()
     {
@@ -18,7 +19,7 @@ Class Autor
     {
         return $this->data_nascimento;
     }
-    public function getLivros()
+   public function getLivros()
     {
         return $this->livros;
     }
